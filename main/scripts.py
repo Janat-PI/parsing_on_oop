@@ -52,9 +52,15 @@ class Parsing():
     def build(self):
         soup = self.soup()
         find_all = self.find_all(soup)
+        result = []
         for obj in find_all:
-            print(self.find_title(obj))
-            print(self.find_price(obj))
-            print(self.find_articule(obj))
+            data = {
+                "title": self.find_title(obj),
+                "price": self.find_price(obj),
+                "article": self.find_articule(obj)
+            }
+            result.append(data)
             break
+        return result
+
         
